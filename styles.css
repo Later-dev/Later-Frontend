@@ -14,13 +14,10 @@ body {
 
 /* Header */
 .header {
-  position: fixed;
-  top: 0;
+  /* Шапка больше не фиксирована, она будет прокручиваться вместе с контентом */
   width: 100%;
-  background: rgba(13, 13, 13, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  padding: 1rem 0;
+  background: #0d0d0d; /* Упрощенный фон, так как backdrop-filter не нужен для статической шапки */
+  padding: 0.75rem 0; /* Уменьшенный вертикальный отступ */
   border-bottom: 1px solid #f2b705;
 }
 
@@ -374,8 +371,8 @@ body {
 
 /* Product Detail Page */
 .product-detail-page {
-  padding-top: 80px; /* To account for fixed header */
-  min-height: calc(100vh - 100px); /* Adjust based on footer height */
+  padding-top: 2rem; /* Убран компенсирующий отступ, добавлен небольшой отступ сверху */
+  min-height: calc(100vh - 100px); /* Оставлено для обеспечения минимальной высоты страницы */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -537,6 +534,20 @@ body {
 
   .nav-container {
     padding: 0 1rem;
+  }
+
+  /* Уменьшение размеров логотипа и текста шапки на мобильных устройствах */
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .header {
+    padding: 0.5rem 0; /* Еще меньший отступ для шапки на мобильных */
   }
 
   .product-detail-container {
