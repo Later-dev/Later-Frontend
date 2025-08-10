@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - Later Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cart-page-body">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="images/photo_2025-08-10_15-26-32.jpg" alt="Later Store Logo">
+                <span class="logo-text">LATER STORE</span>
+            </div>
+            
+            <a href="cart.html" class="cart-icon">🛒 Корзина <span id="cart-count" class="cart-count-badge">0</span></a>
+        </nav>
+    </header>
+
+    <section class="cart-section">
+        <h1>Ваша Корзина</h1>
+        <div id="cart-items-container" class="cart-items-container">
+             Cart items will be rendered here by JavaScript 
+            <p class="empty-cart-message">Ваша корзина пуста.</p>
+        </div>
+
+        <div class="cart-summary">
+            <div class="cart-summary-row">
+                <span>Итого:</span>
+                <span id="cart-total-price" class="cart-total-price">0 ₽</span>
+            </div>
+            <a href="#" class="checkout-button">Оформить заказ</a>
+            <a href="index.html" class="back-to-home" style="text-align: center; margin-top: 1rem;">← Продолжить покупки</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo">
+                    <img src="images/photo_2025-08-10_15-26-32.jpg" alt="Later Store Logo" style="width: 40px; height: 40px;">
+                    <span style="color: #23D9A5; font-weight: 600; margin-left: 10px;">LATER STORE</span>
+                </div>
+                <p>Для подписчиков, от Валентина с любовью &lt;3</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="https://t.me/latermerch" target="_blank">TG</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Later Store. Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="product-detail-page-body">
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
@@ -15,7 +15,7 @@
                 <span class="logo-text">LATER STORE</span>
             </div>
             
-            <button class="cart-icon">🛒 Корзина</button>
+            <a href="cart.html" class="cart-icon">🛒 Корзина <span id="cart-count" class="cart-count-badge">0</span></a>
         </nav>
     </header>
 
@@ -32,11 +32,20 @@
                 </p>
                 <div class="product-detail-actions">
                     <div class="quantity-selector">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button id="decrease-quantity">-</button>
+                        <span id="product-quantity-display">1</span>
+                        <button id="increase-quantity">+</button>
                     </div>
-                    <button class="product-detail-add-to-cart">Добавить в корзину</button>
+                    <button 
+                        class="product-detail-add-to-cart" 
+                        id="add-to-cart-detail-btn"
+                        data-product-id="solar-mind"
+                        data-product-name="Solar Mind"
+                        data-product-price="1200"
+                        data-product-image="images/photo_2025-08-10_15-24-24.jpg"
+                    >
+                        Добавить в корзину
+                    </button>
                 </div>
                 <a href="index.html" class="back-to-home">← Вернуться к товарам</a>
             </div>
@@ -50,7 +59,7 @@
                     <img src="images/photo_2025-08-10_15-26-32.jpg" alt="Later Store Logo" style="width: 40px; height: 40px;">
                     <span style="color: #23D9A5; font-weight: 600; margin-left: 10px;">LATER STORE</span>
                 </div>
-                <p>Для подписчиков, от Валентина с любовью <3</p>
+                <p>Для подписчиков, от Валентина с любовью &lt;3</p>
             </div>
             
             <div class="footer-section">
@@ -65,5 +74,6 @@
             <p>&copy; 2024 Later Store. Все права защищены.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
