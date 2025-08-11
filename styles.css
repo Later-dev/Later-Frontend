@@ -880,3 +880,76 @@ body {
 .product-card {
   animation: fadeInUp 0.6s ease-out forwards;
 }
+
+/* Toast Notification Styles */
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  pointer-events: none; /* Allow clicks to pass through container */
+}
+
+.toast-message {
+  background-color: rgba(35, 217, 165, 0.9); /* Greenish background */
+  color: #0d0d0d; /* Dark text */
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: auto; /* Allow clicks on individual toasts */
+  max-width: 300px; /* Limit width */
+  word-wrap: break-word; /* Ensure long messages wrap */
+}
+
+.toast-message.show {
+  animation: slideInUp 0.3s forwards;
+}
+
+.toast-message.hide {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Responsive adjustments for toast */
+@media (max-width: 600px) {
+  #toast-container {
+    bottom: 10px;
+    right: 10px;
+    left: 10px; /* Occupy full width on small screens */
+    align-items: center; /* Center toasts horizontally */
+  }
+
+  .toast-message {
+    max-width: 90%; /* Adjust max-width for mobile */
+    text-align: center;
+  }
+}

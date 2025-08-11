@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const productImage = button.dataset.productImage
 
       addToCart(productId, productName, productPrice, productImage, 1)
-      alert(`${productName} добавлен в корзину!`)
+      showToast(`${productName} добавлен в корзину!`) // Изменено на showToast
     })
   })
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const productImage = addToCartDetailBtn.dataset.productImage
 
       addToCart(productId, productName, productPrice, productImage, currentQuantity)
-      alert(`${productName} (${currentQuantity} шт.) добавлен в корзину!`)
+      showToast(`${productName} (${currentQuantity} шт.) добавлен в корзину!`) // Изменено на showToast
     })
   }
 
@@ -158,5 +158,39 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
     cartTotalPriceElement.textContent = `${total.toLocaleString("ru-RU")} ₽`
+  }
+
+  // --- Toast Notification Function ---
+  function showToast(message) {
+    let toastContainer = document.getElementById("toast-container")
+    if (!toastContainer) {
+      toastContainer = document.createElement("div")
+      toastContainer.id = "toast-container"
+      document.body.appendChild(toastContainer)
+    }
+
+    const toast = document.createElement("div")
+    toast.classList.add("toast-message")
+    toast.textContent = message
+    toastContainer.appendChild(toast)
+
+    // Trigger reflow to ensure animation plays
+    void toast.offsetWidth
+    toast.classList.add("show")
+
+    setTimeout(() => {
+      toast.classList.remove("show")
+      toast.classList.add("hide") // Add hide class for fade out
+      toast.addEventListener(
+        "animationend",
+        () => {
+          toast.remove()
+          if (toastContainer.children.length === 0) {
+            toastContainer.remove() // Remove container if no toasts left
+          }
+        },
+        { once: true },
+      )
+    }, 3000) // Toast visible for 3 seconds
   }
 })
