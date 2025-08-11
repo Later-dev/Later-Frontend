@@ -760,48 +760,83 @@ body {
   }
 
   .cart-item {
-    flex-direction: row; /* Keep it a row */
-    align-items: center; /* Vertically center items */
-    justify-content: space-between; /* Distribute space between items */
-    gap: 0.75rem; /* Reduce gap slightly */
-    padding: 0.75rem 0; /* Adjust padding */
-    text-align: left; /* Ensure text is left-aligned within the item */
+    display: grid;
+    grid-template-columns: 80px 1fr auto; /* Изображение, Детали/Количество, Кнопка удаления */
+    grid-template-rows: auto auto; /* Две строки для контента */
+    grid-template-areas:
+      "image details details"
+      "image quantity remove";
+    gap: 0.5rem 1rem; /* Отступы между строками и столбцами */
+    align-items: center; /* Выравнивание элементов по центру в их строках */
+    padding: 0.75rem 0;
   }
 
   .cart-item-image {
-    width: 70px; /* Make image slightly smaller */
-    height: 70px;
-    margin: 0; /* Remove auto margin */
-    flex-shrink: 0; /* Prevent image from shrinking */
+    grid-area: image;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #f2b705;
   }
 
   .cart-item-details {
-    flex-grow: 1; /* Allow details to take available space */
-    text-align: left; /* Ensure text is left-aligned */
-    width: auto; /* Remove fixed width */
+    grid-area: details;
+    /* flex-grow: 1; */ /* Удалено, так как grid-area уже управляет размером */
+    /* text-align: left; */ /* Удалено, так как grid-area уже управляет размером */
+    /* width: auto; */ /* Удалено, так как grid-area уже управляет размером */
   }
 
   .cart-item-details h3 {
-    font-size: 1rem; /* Adjust font size */
+    font-size: 1.1rem; /* Скорректированный размер шрифта */
+    margin-bottom: 0.25rem; /* Уменьшенный отступ */
   }
 
   .cart-item-price {
-    font-size: 0.9rem; /* Adjust font size */
+    font-size: 1rem; /* Скорректированный размер шрифта */
   }
 
   .cart-item-quantity-controls {
-    margin: 0; /* Remove auto margin */
-    flex-shrink: 0; /* Prevent controls from shrinking */
-  }
-
-  .cart-item-quantity-controls span {
-    font-size: 0.85rem; /* Adjust font size */
+    grid-area: quantity;
+    /* flex-shrink: 0; */ /* Удалено, так как grid-area уже управляет размером */
+    justify-self: start; /* Выравнивание по левому краю в ячейке сетки */
   }
 
   .cart-item-remove {
-    margin: 0; /* Remove auto margin */
-    flex-shrink: 0; /* Prevent button from shrinking */
-    font-size: 1.2rem; /* Make remove button slightly smaller */
+    grid-area: remove;
+    /* flex-shrink: 0; */ /* Удалено, так как grid-area уже управляет размером */
+    justify-self: end; /* Выравнивание по правому краю в ячейке сетки */
+    align-self: center; /* Выравнивание по центру по вертикали с элементами управления количеством */
+    /* margin: 0; */ /* Удалено, так как grid-area уже управляет размером */
+    font-size: 1.5rem; /* Возвращаем исходный размер для лучшей видимости */
+  }
+
+  /* Дополнительные стили для очень маленьких экранов (например, < 480px) */
+  @media (max-width: 480px) {
+    .cart-item {
+      grid-template-columns: 70px 1fr; /* Изображение, затем контент */
+      grid-template-rows: auto auto auto; /* Изображение, Детали, Количество, Удалить */
+      grid-template-areas:
+        "image details"
+        "quantity quantity" /* Элементы управления количеством занимают всю ширину под деталями */
+        "remove remove"; /* Кнопка удаления занимает всю ширину под элементами управления количеством */
+      gap: 0.5rem; /* Уменьшенный отступ */
+    }
+
+    .cart-item-image {
+      width: 70px;
+      height: 70px;
+    }
+
+    .cart-item-quantity-controls {
+      justify-self: start; /* Выравнивание по левому краю */
+      margin-top: 0.5rem; /* Добавляем отступ от деталей */
+    }
+
+    .cart-item-remove {
+      justify-self: end; /* Выравнивание по правому краю */
+      margin-top: 0.5rem; /* Добавляем отступ от элементов управления количеством */
+    }
   }
 
   .cart-icon {
