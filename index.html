@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Later Store - Уникальные товары для особенных людей</title>
+    <title>Later Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,7 +15,7 @@
                 <span class="logo-text">LATER STORE</span>
             </div>
             
-            <button class="cart-icon">🛒 Корзина</button>
+            <a href="cart.html" class="cart-icon">🛒 Корзина <span id="cart-count" class="cart-count-badge">0</span></a>
         </nav>
     </header>
 
@@ -27,9 +27,17 @@
                         <img src="images/photo_2025-08-10_15-23-39.jpg" alt="Мухоморы" class="product-image">
                         <div class="product-info">
                             <h3 class="product-title">Мухоморы</h3>
-                            <div class="product-price">2,500 ₽</div>
-                            <p class="product-description">Лимитированная коллекция</p>
-                            <button class="add-to-cart">Добавить в корзину</button>
+                            <div class="product-price">2 500 ₽</div>
+                            <p class="product-description">🔥 ДРОП - красный мухомор 🍄 </p>
+                            <button 
+                                class="add-to-cart-btn add-to-cart"
+                                data-product-id="muhomory"
+                                data-product-name="Мухоморы"
+                                data-product-price="2500"
+                                data-product-image="images/photo_2025-08-10_15-23-39.jpg"
+                            >
+                                Добавить в корзину
+                            </button>
                         </div>
                     </div>
                 </a>
@@ -38,10 +46,18 @@
                     <div class="product-card">
                         <img src="images/photo_2025-08-10_15-24-24.jpg" alt="Solar Mind Patch" class="product-image">
                         <div class="product-info">
-                            <h3 class="product-title">Ashwa</h3>
-                            <div class="product-price">1,200 ₽</div>
-                            <p class="product-description">Защитник вашего спокойствия</p>
-                            <button class="add-to-cart">Добавить в корзину</button>
+                            <h3 class="product-title">Solar Mind</h3>
+                            <div class="product-price">1 200 ₽</div>
+                            <p class="product-description">🌿 АШВАГАНДА 🌿</p>
+                            <button 
+                                class="add-to-cart-btn add-to-cart"
+                                data-product-id="solar-mind"
+                                data-product-name="Solar Mind"
+                                data-product-price="1200"
+                                data-product-image="images/photo_2025-08-10_15-24-24.jpg"
+                            >
+                                Добавить в корзину
+                            </button>
                         </div>
                     </div>
                 </a>
@@ -50,10 +66,18 @@
                     <div class="product-card">
                         <img src="images/photo_2025-08-10_15-18-03.jpg" alt="Japanese Style Cap" class="product-image">
                         <div class="product-info">
-                            <h3 class="product-title">Кепка Cowboy Bebop</h3>
-                            <div class="product-price">3,200 ₽</div>
-                            <p class="product-description">Стильная кепка</p>
-                            <button class="add-to-cart">Добавить в корзину</button>
+                            <h3 class="product-title">COWBOY BEBOP</h3>
+                            <div class="product-price">3 200 ₽</div>
+                            <p class="product-description">See you space cowboy 🔫 💥</p>
+                            <button 
+                                class="add-to-cart-btn add-to-cart"
+                                data-product-id="cowboy-bebop-cap"
+                                data-product-name="COWBOY BEBOP"
+                                data-product-price="3200"
+                                data-product-image="images/photo_2025-08-10_15-18-03.jpg"
+                            >
+                                Добавить в корзину
+                            </button>
                         </div>
                     </div>
                 </a>
@@ -63,9 +87,17 @@
                         <img src="images/photo_2025-08-10_15-20-10.jpg" alt="What's Your Plan Notebook" class="product-image">
                         <div class="product-info">
                             <h3 class="product-title">What's Your Plan?</h3>
-                            <div class="product-price">1,800 ₽</div>
+                            <div class="product-price">1 800 ₽</div>
                             <p class="product-description">Стильный блокнот для планирования и творчества</p>
-                            <button class="add-to-cart">Добавить в корзину</button>
+                            <button 
+                                class="add-to-cart-btn add-to-cart"
+                                data-product-id="whats-your-plan-notebook"
+                                data-product-name="What's Your Plan?"
+                                data-product-price="1800"
+                                data-product-image="images/photo_2025-08-10_15-20-10.jpg"
+                            >
+                                Добавить в корзину
+                            </button>
                         </div>
                     </div>
                 </a>
@@ -80,15 +112,13 @@
                     <img src="images/photo_2025-08-10_15-26-32.jpg" alt="Later Store Logo" style="width: 40px; height: 40px;">
                     <span style="color: #23D9A5; font-weight: 600; margin-left: 10px;">LATER STORE</span>
                 </div>
-                <p>Уникальные товары для особенных людей</p>
+                <p>Для подписчиков, от Валентина с любовью &lt;3</p>
             </div>
             
             <div class="footer-section">
                 <h3>Социальные сети</h3>
                 <div class="social-links">
-                    <a href="#">IG</a>
-                    <a href="#">TG</a>
-                    <a href="#">VK</a>
+                    <a href="https://t.me/latermerch" target="_blank">TG</a>
                 </div>
             </div>
         </div>
@@ -97,5 +127,6 @@
             <p>&copy; 2024 Later Store. Все права защищены.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
